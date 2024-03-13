@@ -1,24 +1,38 @@
-import './style.css'
-import typescriptLogo from './typescript.svg'
-import viteLogo from '/vite.svg'
-import { setupCounter } from './counter.ts'
+import './style.css';
 
-document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
-  <div>
-    <a href="https://vitejs.dev" target="_blank">
-      <img src="${viteLogo}" class="logo" alt="Vite logo" />
-    </a>
-    <a href="https://www.typescriptlang.org/" target="_blank">
-      <img src="${typescriptLogo}" class="logo vanilla" alt="TypeScript logo" />
-    </a>
-    <h1>Vite + TypeScript</h1>
-    <div class="card">
-      <button id="counter" type="button"></button>
-    </div>
-    <p class="read-the-docs">
-      Click on the Vite and TypeScript logos to learn more
-    </p>
-  </div>
-`
+const ObjectType = "Autos"
+const Objects = ["Object1", "Object2", "Object3", "Object4", "Object5", "Object6", "Object7",]
 
-setupCounter(document.querySelector<HTMLButtonElement>('#counter')!)
+document.addEventListener("DOMContentLoaded", () => {
+    let ObjectString: string = "";
+    Objects.forEach((object) => {
+        ObjectString += "<div class='spacing'>" + object + "</div>"
+    })
+
+    let ObjectTypeHTML = document.getElementById("ObjectType") as HTMLElement
+    ObjectTypeHTML.innerHTML = "<div>" + ObjectType + "</div>"
+
+    let ObjectTypeHTML2 = document.getElementById("ObjectType2") as HTMLElement
+    ObjectTypeHTML2.innerHTML = "<div>" + ObjectType + "</div>"
+
+    let TimeHTML = document.getElementById("Time") as HTMLElement
+    TimeHTML.innerHTML = "<div id='TopMonth'>" + "März 2024" + "</div><div id='TopDate'>" + "UWU" + "</div>"
+
+    let ObjectsHTML = document.getElementById("Objects") as HTMLElement
+    ObjectsHTML.innerHTML = ObjectString
+
+    let ObjectsHTML2 = document.getElementById("Objects2") as HTMLElement
+    ObjectsHTML2.innerHTML = ObjectString
+
+    let BookingsHTML = document.getElementById("Bookings") as HTMLElement
+    for (let i = 0; i < Objects.length; i++) BookingsHTML.innerHTML += "<div class='underLineBooking'></div>"
+
+
+    let inputs = document.querySelectorAll(".InputDate")
+    let labels = document.querySelectorAll(".labels")
+
+    for (let i = 0; i < inputs.length; i++) {
+        inputs[i].addEventListener("mouseover", () => {labels[i].style.opacity = "0"})
+        inputs[i].addEventListener("mouseout", () => {labels[i].style.opacity = "1"})
+    }
+});
