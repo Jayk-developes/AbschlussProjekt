@@ -12,95 +12,101 @@
 
     <div class="header">Objektbuchung</div>
 
-    <!-- Booking Options Here -->
-    <div id="BookingOptions" class="BookingOptions">
+    <div class="TopContainer">
 
-        <!-- Object Booking Form -->
-        <div id="ObjectBooking" class="ObjectBooking">
-            <h2>Objekt Buchen</h2>
-            <div class="LabelAlign" style="padding: 0 .5rem">
-                <label for="StartDay" class="labels">Start</label>
-                <input type="date" name="StartDay" id="StartDay" class="InputDate">
+        <!-- Booking Options Here -->
+        <div id="BookingOptions" class="BookingOptions">
+
+            <!-- Object Booking Form -->
+            <div id="ObjectBooking" class="ObjectBooking">
+                <h2>Objekt Buchen</h2>
+                <div class="LabelAlign" style="padding: 0 .5rem">
+                    <label for="StartDay" class="labels">Start</label>
+                    <input type="date" name="StartDay" id="StartDay" class="InputDate">
+                </div>
+                <div class="LabelAlign" style="padding: 0 .5rem">
+                    <label for="EndDay" class="labels">Schluss</label>
+                    <input type="date" name="EndDay" id="EndDay" class="InputDate">
+                </div>
+                <div class="BookingButton">
+                    <input type="button" value="Buchen">
+                </div>
             </div>
-            <div class="LabelAlign" style="padding: 0 .5rem">
-                <label for="EndDay" class="labels">Schluss</label>
-                <input type="date" name="EndDay" id="EndDay" class="InputDate">
+
+            <!-- Additional Settings Form -->
+            <div id="AdditionalOptions" class="AdditionalOptions">
+                <h2>Zusätzliche Optionen</h2>
+                <div class="AdditionalOptionsForm">
+                    <div class="AdditionalOptionsSelect">
+                        <div>
+                            <select>
+                                <option value="Priority" selected="" disabled="">Priorität</option>
+                                <option value="Low">Niedrig</option>
+                                <option value="Mid">Normal</option>
+                                <option value="High">Hoch</option>
+                                <option value="Severe">Sehr Hoch</option>
+                            </select>
+                            <p>Default-Priorität: Normal</p>
+                        </div>
+                        <div>
+                            <select>
+                                <option value="Object" selected="" disabled="">Objekt</option>
+                                <option value="1">Objekt 1</option>
+                                <option value="2">Objekt 2</option>
+                                <option value="3">Objekt 3</option>
+                                <option value="4">Objekt 4</option>
+                            </select>
+                            <p>Default-Objekt: Nächst Mögliches Objekt</p>
+                        </div>
+                    </div>
+                    <div class="AdditionalOptionsTime">
+                        <div>
+                            <div class="LabelAlign">
+                                <label for="StartTime" class="labels">Startzeitpunkt</label>
+                                <input type="time" name="StartTime" id="StartTime" placeholder="Startzeitpunkt"
+                                       class="InputDate">
+                            </div>
+                            <p>Default-Startzeitpunkt: 00:00 Uhr</p>
+                        </div>
+                        <div>
+                            <div class="LabelAlign">
+                                <label for="EndTime" class="labels">Endzeitpunkt</label>
+                                <input type="time" name="EndTime" id="EndTime" placeholder="Endzeitpunkt"
+                                       class="InputDate">
+                            </div>
+                            <p>Default-Endzeitpunkt: 00:00 Uhr</p>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="BookingButton">
-                <input type="button" value="Buchen">
+
+            <!-- Settings Form -->
+            <div id="Settings" class="Settings">
+                <h2>Einstellungen</h2>
+                <div class="BookingButton">
+                    <input type="button" value="Meine Buchungen">
+                </div>
+                <div class="BookingButton">
+                    <input type="button" value="Objekte Bearbeiten">
+                </div>
+                <div class="BookingButton">
+                    <input type="button" value="Anzeigeoptionen">
+                </div>
             </div>
         </div>
 
-        <!-- Additional Settings Form -->
-        <div id="AdditionalOptions" class="AdditionalOptions">
-            <h2>Zusätzliche Optionen</h2>
-            <div class="AdditionalOptionsForm">
-                <div class="AdditionalOptionsSelect">
-                    <div>
-                        <select>
-                            <option value="Priority" selected="" disabled="">Priorität</option>
-                            <option value="Low">Niedrig</option>
-                            <option value="Mid">Normal</option>
-                            <option value="High">Hoch</option>
-                            <option value="Severe">Sehr Hoch</option>
-                        </select>
-                        <p>Default-Priorität: Normal</p>
-                    </div>
-                    <div>
-                        <select>
-                            <option value="Object" selected="" disabled="">Objekt</option>
-                            <option value="1">Objekt 1</option>
-                            <option value="2">Objekt 2</option>
-                            <option value="3">Objekt 3</option>
-                            <option value="4">Objekt 4</option>
-                        </select>
-                        <p>Default-Objekt: Nächst Mögliches Objekt</p>
-                    </div>
-                </div>
-                <div class="AdditionalOptionsTime">
-                    <div>
-                        <div class="LabelAlign">
-                            <label for="StartTime" class="labels">Startzeitpunkt</label>
-                            <input type="time" name="StartTime" id="StartTime" placeholder="Startzeitpunkt" class="InputDate">
-                        </div>
-                        <p>Default-Startzeitpunkt: 00:00 Uhr</p>
-                    </div>
-                    <div>
-                        <div class="LabelAlign">
-                            <label for="EndTime" class="labels">Endzeitpunkt</label>
-                            <input type="time" name="EndTime" id="EndTime" placeholder="Endzeitpunkt" class="InputDate">
-                        </div>
-                        <p>Default-Endzeitpunkt: 00:00 Uhr</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-
-        <!-- Settings Form -->
-        <div id="Settings" class="Settings">
-            <h2>Einstellungen</h2>
-            <div class="BookingButton">
-                <input type="button" value="Meine Buchungen">
-            </div>
-            <div class="BookingButton">
-                <input type="button" value="Objekte Bearbeiten">
-            </div>
-            <div class="BookingButton">
-                <input type="button" value="Anzeigeoptionen">
-            </div>
+        <div id="Documentation" class="Documentation">
+            <h2>Prioritätfarben</h2>
         </div>
     </div>
-
-
     <!--Booking View Here-->
     <div id="BookingView" class="BookingView">
-        <div  id="ObjectType" class="ObjectType"></div>
-        <div  id="Time"></div>
-        <div  id="ObjectType2" class="ObjectType"></div>
-        <div  id="Objects" class="Objects"></div>
-        <div  id="Bookings"></div>
-        <div  id="Objects2" class="Objects"></div>
+        <div id="ObjectType" class="ObjectType"></div>
+        <div id="Time"></div>
+        <div id="ObjectType2" class="ObjectType"></div>
+        <div id="Objects" class="Objects"></div>
+        <div id="Bookings"></div>
+        <div id="Objects2" class="Objects"></div>
     </div>
 
 </div>
