@@ -28,6 +28,7 @@ a:hover {
 }
 
 body {
+    overflow: hidden;
     margin: 0;
     display: flex;
     place-items: center;
@@ -122,16 +123,14 @@ button:focus-visible {
 .TopContainer {
     width: 80%;
     display: grid;
-    grid-template-columns: 70% auto;
+    gap: 1rem;
+    grid-template-columns: 30% 70%;
     margin-bottom: 1rem;
-    gap: 2rem;
+    transition: all ease-in-out .2s;
 }
 
 .Documentation {
     background-color: #fff;
-    width: -webkit-fill-available;
-    width: -moz-available;
-    width: fill-available;
     min-height: 10rem;
     border-radius: .5rem;
     box-shadow: 0 .25rem .75rem 0 #0002;
@@ -187,93 +186,64 @@ button:focus-visible {
 }
 
 .BookingOptions {
-    width: -webkit-fill-available;
-    width: -moz-available;
-    width: fill-available;
-    background-color: #fff;
-    padding: 1rem;
     display: grid;
-    grid-template-columns:  1fr 2fr 1fr;
+    grid-template-columns: 100% auto;
+    grid-auto-rows: auto auto;
+    overflow: hidden;
+    background-color: #fff;
     min-height: 10rem;
     border-radius: .5rem;
     box-shadow: 0 .25rem .75rem 0 #0002;
+    transition: all ease .2s;
+    padding: .5rem;
 
-    div h2 {
-        margin-top: -1rem;
-        margin-bottom: .25rem;
-    }
-
-    .ObjectBooking {
+    .BookingOption {
+        padding: 1rem;
         display: flex;
+        gap: 1.25rem;
         flex-direction: column;
-        gap: 1rem;
-        align-items: center;
-    }
+        text-align: center;
 
-    .AdditionalOptions {
-        border-right: 1px solid rgba(69, 74, 161, 0.67);
-        border-left: 1px solid rgba(69, 74, 161, 0.67);
+        h2 {
+            margin-top: 0;
+            margin-bottom: -.5rem;
+        }
 
-        display: flex;
-        flex-direction: column;
-        gap: 1rem;
-        align-items: center;
-
-        .AdditionalOptionsForm {
-            width: -webkit-fill-available;
-            width: -moz-available;
-            width: fill-available;
-
-            display: grid;
-            grid-template-columns: 1fr 1fr;
+        .BookingOptionInner {
+            display: flex;
+            flex-direction: row;
             gap: 1rem;
-            padding: 0 1rem;
 
-            .AdditionalOptionsSelect {
+            div {
+                width: 100%;
                 display: flex;
                 flex-direction: column;
                 gap: 1rem;
 
                 select {
-                    font-size: .9rem;
+                    height: 35%;
                 }
 
-                p {
-                    font-size: .75rem;
-                    line-height: .75rem;
-                    margin-top: .25rem;
-                    margin-bottom: 0;
-                    color: #777;
-                }
-            }
-
-            .AdditionalOptionsTime {
-                display: flex;
-                flex-direction: column;
-                gap: 1rem;
-
-                input {
-                    padding: .43rem;
-                }
-
-                p {
-                    font-size: .75rem;
-                    line-height: .75rem;
-                    margin-top: .25rem;
-                    margin-bottom: 0;
-                    color: #777;
+                textarea {
+                    height: 100% !important;
                 }
             }
         }
     }
+}
 
-    .Settings {
-        display: flex;
-        flex-direction: column;
-        gap: 1rem;
-        justify-content: center;
-        align-items: center;
-    }
+button {
+    background-color: #669;
+    color: #fff;
+    border: none;
+
+    box-shadow: 0 .125rem .5rem 0 #0005;
+    transition: ease-in-out all .2s;
+
+}
+
+button:hover {
+    background-color: #88a;
 }
 
 .labels {
@@ -289,12 +259,16 @@ button:focus-visible {
     align-items: center;
 
     label {
+        text-align: left;
         width: -webkit-fill-available;
         width: -moz-available;
         width: fill-available;
-        margin: 0 3rem 0 .5rem;
+        height: -webkit-fill-available;
+        height: -moz-available;
+        height: fill-available;
+        margin: .25rem 3rem 0 .5rem;
         color: #777;
-        padding: .125rem;
+        padding: .25rem;
         position: absolute;
         background-color: #fff;
         pointer-events: none;
@@ -319,7 +293,8 @@ button:focus-visible {
     }
 }
 
-input, select {
+input, select, textarea {
+    background-color: transparent;
     width: -webkit-fill-available;
     width: -moz-available;
     width: fill-available;
@@ -355,6 +330,8 @@ input:hover, select:hover {
     box-shadow: 0 .25rem .75rem 0 #0002;
 
     .ObjectType {
+        background-color: #fff;
+        z-index: 10;
         display: flex;
         justify-content: center;
         align-items: center;
@@ -406,6 +383,8 @@ input:hover, select:hover {
             border-bottom: none;
         }
 
+        background-color: #fff;
+        z-index: 10;
         color: #000a;
         font-weight: bold;
     }
@@ -418,15 +397,28 @@ input:hover, select:hover {
         border-left: 1px solid #000;
     }
 
+    #ContainerBookings {
+        display: flex;
+        flex-direction: column;
+        overflow: hidden;
+    }
+
     #Bookings {
-        display: grid;
+        display: flex;
+        flex-direction: column;
+        position: relative;
+        left: -70%;
+        height: 100%;
 
         .underLineBooking {
-            width: -webkit-fill-available;
-            width: -moz-available;
-            width: fill-available;
+            height: -webkit-fill-available;
+            height: -moz-available;
+            height: fill-available;
+            overflow: hidden;
+            width: 200%;
             border-bottom: 1px solid #8887;
-            background: repeating-linear-gradient(90deg, #0000 0px, #0000 calc(10% - 1.1px), #0004 calc(10% - 1px), #0004 10%);
+            background: repeating-linear-gradient(90deg, #0000 0px, #0000 calc(5% - 1px), #0004 calc(5% - 1px), #0004 5%);
+            pointer-events: none;
         }
 
         .underLineBooking:nth-child(even) {
@@ -437,4 +429,24 @@ input:hover, select:hover {
             border-bottom: none;
         }
     }
+}
+
+.BookedDurationRod {
+        position: absolute;
+    width: 6rem;
+    height: 2rem;
+    background-color: #f00;
+    top: calc((100% / 8)* 1 - (100% / 9));
+    left: 70%;
+    border-radius: 8.5rem;
+}
+
+.icon {
+    font-size: 2rem;
+    color: #669;
+    transition: ease-in-out all .2s;
+}
+
+.icon:hover {
+    color: #447;
 }

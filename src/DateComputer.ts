@@ -14,3 +14,13 @@ const Dates = () => {
 }
 
 Dates()
+
+export const CurrentDate = new Date()
+
+export const ShowWhenOnScreen = (LeftBorder, RightBorder, Target, Width) => {
+        LeftBorder = LeftBorder.getBoundingClientRect()
+        RightBorder = RightBorder.getBoundingClientRect()
+        let TargetBound = Target.getBoundingClientRect()
+        Target.style.visibility = LeftBorder.right - Width < TargetBound.left && RightBorder.left + Width > TargetBound.right ? "visible" : "hidden"
+    }
+    export const MonthNameArray = ["Januar", "Februar", "März", "April", "Mai", "Juni", "Juli", "August", "September", "Oktober", "November", "December"];
